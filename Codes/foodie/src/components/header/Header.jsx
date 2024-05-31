@@ -1,4 +1,4 @@
-import { logo_url, navItemCSS } from "../../utils/header";
+import { hideInMobileView, logo_url, navItemCSS } from "../../utils/header";
 import "./header.css"
 
 const Header = () => {
@@ -8,15 +8,15 @@ const Header = () => {
                 <img src={logo_url} className="h-[40px]" alt="app_logo" />
             </div>
             <div className="header_right flex items-center gap-x-8">
-                <div className={navItemCSS}>
+                <div className={`${navItemCSS} ${hideInMobileView}`}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                     <span>Search</span>
                 </div>
-                <div className={navItemCSS}>
+                <div className={`${navItemCSS} ${hideInMobileView}`}>
                     <i className="fa-brands fa-hire-a-helper"></i>
                     <span>Help</span>
                 </div>
-                <div className={navItemCSS}>
+                <div className={`${navItemCSS} ${hideInMobileView}`}>
                     <i className="fa-solid fa-user"></i>
                     <span>Sign In</span>
                 </div>

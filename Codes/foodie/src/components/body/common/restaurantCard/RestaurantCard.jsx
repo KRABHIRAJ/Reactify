@@ -17,9 +17,9 @@ const RestaurantCard = ({ restaurant }) => {
   const header = aggregatedDiscountInfoV3?.header || '';
   const subHeader = aggregatedDiscountInfoV3?.subHeader || '';
 
-  return <div className="restaurant_card cursor-pointer hover:transform w-[280px] md:w-[400px]">
+  return <div className="restaurant_card cursor-pointer hover:transform w-[190px] md:w-[400px]">
     <div className="restaurant_card_image relative image-container mt-2">
-        <img className="h-[200px] w-[280px] md:h-[250px] md:w-[400px] rounded-[16px] object-cover" src={res_card_base_url+cloudinaryImageId} alt={cloudinaryImageId} />
+        <img className="h-[240px] w-[190px] md:h-[250px] md:w-[400px] rounded-[16px] object-cover" src={res_card_base_url+cloudinaryImageId} alt={cloudinaryImageId} />
         <div className="absolute bottom-1 left-4 z-10 md:flex md:gap-x-3">
             <p className=" text-white font-extrabold text-[24px] ">{header}</p>
             <p className=" md:text-white text-gray-300 text-[16px] font-extrabold md:text-[24px]  ">{subHeader}</p>
