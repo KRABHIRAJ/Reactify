@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import { getAPIUrl } from '../../utils/appBody';
 import './AppBody.css';
 import {MindCarousel, RestaurantChain} from '../index';
+import { getAPIUrl } from '../../utils/constants/api';
 
 const AppBody = () => {
     const [appData, setAppData] = useState([]);

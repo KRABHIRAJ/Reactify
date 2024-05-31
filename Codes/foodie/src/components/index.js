@@ -7,10 +7,13 @@ import RestaurantChain from "./body/restaurantChain/RestaurantChain";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
-export { Header, Footer, AppBody, RestaurantCard, SWHeader, CarouselCard, MindCarousel, RestaurantChain };
-
-
-
-
-
-
+export {
+  Header,
+  Footer,
+  AppBody,
+  RestaurantCard,
+  SWHeader,
+  CarouselCard,
+  MindCarousel,
+  RestaurantChain,
+};
