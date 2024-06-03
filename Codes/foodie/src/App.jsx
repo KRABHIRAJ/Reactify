@@ -1,13 +1,13 @@
 
 import './App.css'
-import { AppBody, Header } from './components'
+import { AppBody, Footer, Header } from './components'
 
 const App = () => {
   return(
     <div>
       <Header />
       <AppBody />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

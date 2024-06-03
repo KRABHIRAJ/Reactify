@@ -7,7 +7,7 @@ const RestaurantChain = ({data}) => {
       <SWHeader title={title} />
       <div className="restaurants_list flex items-center overflow-scroll">
         {
-          restaurants.map((restaurant) => (
+          restaurants?.map((restaurant) => (
             <div className="m-4" key={restaurant?.info?.id}>
               <RestaurantCard restaurant={restaurant?.info} />
             </div>

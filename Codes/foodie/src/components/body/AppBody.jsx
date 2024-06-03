@@ -1,37 +1,34 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios';
 import './AppBody.css';
-import {MindCarousel, RestaurantChain} from '../index';
-import { getAPIUrl } from '../../utils/constants/api';
+import {MindCarousel, RestaurantChain, RestaurantList} from '../index';
+import useFetchRestaurantData from '../../utils/hooks/useFetchRestaurantData';
+import SkeletonCard from './common/skeletonCard/SkeletonCard';
 
 const AppBody = () => {
-    const [appData, setAppData] = useState([]);
-
-    useEffect( () => {
-        const fetchData = async () => {
-            try{
-                const apiUrl = getAPIUrl(12.9160035, 77.64267889999999);
-                const response  = await axios.get(apiUrl);
-                setAppData(response?.data?.data?.cards)
-            }catch(err){
-                console.warn('fetchData Err: ',err)
-            }
-            
-        }
-        fetchData();
-    },[]);
+    const response = useFetchRestaurantData();
+    const rawData = response?.data;
+    const appData = rawData?.cards;
+    const csrfToken = response?.csrfToken;
     console.log('appData >>', appData);
-    if(appData.length <= 0) return;
-    return(
-        <div className='mind_carousel_container max-w-[1350px] m-auto'>
-            <div className='mind_carousel_container'>
-                <MindCarousel data={appData[0]?.card?.card} />
+
+    if(rawData?.length <= 0 || rawData === undefined){
+        return (
+            <SkeletonCard count={30} />
+       )
+    }else{
+        return(
+            <div className='mind_carousel_container max-w-[1350px] m-auto'>
+                <div className='mind_carousel_container'>
+                    <MindCarousel data={appData[0]?.card?.card} />
+                </div>
+                <div className='restaurant_chain_container'>
+                    <RestaurantChain data={appData[1]?.card?.card} />
+                </div>
+                <div className='restaurant_list_container'>
+                    <RestaurantList title={appData[2]?.card?.card?.title} data={appData[4]?.card?.card} rawData={rawData} csrfToken={csrfToken}/>
+                </div>
             </div>
-            <div className='restaurant_chain_container'>
-                <RestaurantChain data={appData[1]?.card?.card} />
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default AppBody;
