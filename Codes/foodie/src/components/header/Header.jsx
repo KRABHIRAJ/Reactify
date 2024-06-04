@@ -1,12 +1,15 @@
+import { NavLink } from "react-router-dom";
 import { hideInMobileView, logo_url, navItemCSS } from "../../utils/header";
 import "./header.css"
 
 const Header = () => {
     return(
         <div className="header flex items-center justify-between px-8 py-6 sticky top-0 z-20 bg-white">
-            <div className="header_left flex items-center cursor-pointer">
-                <img src={logo_url} className="h-[40px]" alt="app_logo" />
-            </div>
+            <NavLink to="/">
+                <div className="header_left flex items-center cursor-pointer">
+                    <img src={logo_url} className="h-[40px]" alt="app_logo" />
+                </div>
+            </NavLink>
             <div className="header_right flex items-center gap-x-8">
                 <div className={`${navItemCSS} ${hideInMobileView}`}>
                     <i className="fa-solid fa-magnifying-glass"></i>
