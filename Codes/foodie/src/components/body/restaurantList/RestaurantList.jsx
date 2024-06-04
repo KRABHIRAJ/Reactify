@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const RestaurantList = ({title, data, rawData, csrfToken}) => {
     const restaurants = data?.gridElements?.infoWithStyle?.restaurants;
-    console.log('rawData >>', rawData);
 
   useEffect(() => {
     // Add the scroll event listener
@@ -20,7 +19,6 @@ const RestaurantList = ({title, data, rawData, csrfToken}) => {
       window.innerHeight + document.documentElement.scrollTop !==
       document.documentElement.offsetHeight - 1
     ) return;
-    console.log('Data Fetched bhaiya...........');
 
     axios({
         method: 'post',

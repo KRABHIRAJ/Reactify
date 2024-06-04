@@ -11,8 +11,6 @@ export const swiggySlice = createSlice({
     initialState,
     reducers:{
         setCarouselResList: (state, action) => {
-            console.log('action >>', action);
-
             state.carouselResList = action.payload;
         },
         setLocation: (state, action) => {
