@@ -12,7 +12,7 @@ const AppBody = () => {
 
     if(rawData?.length <= 0 || rawData === undefined){
         return (
-            <SkeletonCard count={30} />
+            <SkeletonCard count={32} />
        )
     }else{
         return(

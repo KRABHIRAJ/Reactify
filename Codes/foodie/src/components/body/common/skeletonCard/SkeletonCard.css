@@ -1,0 +1,11 @@
+.skeleton-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.react-loading-skeleton{
+    margin: 20px;
+    width: 380px;
+    border-radius: 16px;
+}
