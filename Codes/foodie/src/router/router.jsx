@@ -3,6 +3,7 @@ import Layout from "../Layout";
 import { lazy, Suspense } from 'react';
 import { AppBody, SkeletonCard } from "../components";
 const CarouselRestaurantList = lazy(() => import('../components/body/mindCarousel/CarouselRestaurantList'))
+const RestaurantMenu = lazy(() => import('../components/body/restaurantMenu/RestaurantMenu'))
 
 
 const router = createBrowserRouter(
@@ -12,6 +13,11 @@ const router = createBrowserRouter(
             <Route path="collections/:id" element={
                 <Suspense fallback={<SkeletonCard count={32} /> }>
                     <CarouselRestaurantList />
+                </Suspense>
+            } />
+            <Route path="restaurants/:id" element={
+                <Suspense fallback={<SkeletonCard count={32} /> }>
+                    <RestaurantMenu />
                 </Suspense>
             } />
         </Route>

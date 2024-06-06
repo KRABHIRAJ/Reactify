@@ -12,3 +12,11 @@ export const mind_carousel_base_url = 'https://media-assets.swiggy.com/swiggy/im
 export const getCarouselAPIUrl = (lat, lng, collId, tags) => {
     return `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&collection=${collId}&tags=${tags}&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
 }
+
+export const getRestaurantMenuUrl = (lat, lng, restaurantId) => {
+    return `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${restaurantId}&catalog_qa=undefined&submitAction=ENTER`
+}
+
+export const getIconUrl = (id) => {
+    return `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_40,h_40/${id}`
+}
