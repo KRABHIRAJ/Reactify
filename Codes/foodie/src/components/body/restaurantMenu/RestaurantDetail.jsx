@@ -1,7 +1,6 @@
 import { getIconUrl } from "../../../utils";
 
 const RestaurantDetail = ({ resDetails }) => {
-  console.log("resDetails >>", resDetails);
   const {
     avgRatingString,
     cuisines,
@@ -22,14 +21,17 @@ const RestaurantDetail = ({ resDetails }) => {
   }
   return (
     <div className="mt-8 mx-4" style={containerStyle}>
-      <div className="flex items-center gap-x-1 p-4">
+      <div className="flex items-center gap-x-1 p-4 pb-0">
         <i className="fa-solid fa-star text-[#1F943C]"></i>
         <div className="flex items-center text-[16px] font-[700] text-[#02060cbf] ">
-          <p className="mr-1">{`${avgRatingString}  • `}</p>
+          <p className="mr-1">{`${avgRatingString}(${totalRatingsString})  • `}</p>
           <p>{costForTwoMessage}</p>
         </div>
       </div>
-      <div className="flex items-center gap-x-3 py-4 px-4 text-[14px]">
+      <div className="px-4 text-[14px]">
+        <p className="font-bold text-[#f15700]">{cuisines.join(', ')}</p>
+      </div>
+      <div className="flex items-center gap-x-3 p-4 pt-2 text-[14px]">
         <div className="flex flex-col items-center mt-[4px]">
           <div className="w-[7px] h-[7px] rounded-[50%] bg-[#c4c4c4]" />
           <div className="w-[1px] h-[23px] bg-[#c4c4c4]" />

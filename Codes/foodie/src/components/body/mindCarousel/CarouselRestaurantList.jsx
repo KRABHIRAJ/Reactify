@@ -12,8 +12,6 @@ const CarouselRestaurantList = () => {
     tags = paramsSplitted[1];
   }
   const response = useFetchCarouselResList(collectionId, tags);
-  console.log('response', response);
-  
   if(response?.data?.cards?.length > 0){
     const data = response?.data?.cards;
     const headerData = data[0]?.card?.card;
