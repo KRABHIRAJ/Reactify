@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {RestaurantCard, SWHeader} from "../../index";
 import axios from 'axios';
+import { responsiveGrid } from "../../../utils";
 
 const RestaurantList = ({title, data, rawData, csrfToken}) => {
     const restaurants = data?.gridElements?.infoWithStyle?.restaurants;
@@ -45,7 +46,7 @@ const RestaurantList = ({title, data, rawData, csrfToken}) => {
     return(
         <div className="py-8 border-b border-[#F0F0F5]">
             <SWHeader title={title}/>
-            <div className="restaurant_list flex flex-wrap items-center m-auto justify-between">
+            <div className={`restaurant_list ${responsiveGrid}`}>
                 {
                     restaurants?.map((restaurant) => (
                         <div className="m-4" key={restaurant?.info?.id}>

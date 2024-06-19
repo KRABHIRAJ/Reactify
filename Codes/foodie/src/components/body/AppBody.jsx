@@ -16,7 +16,7 @@ const AppBody = () => {
        )
     }else{
         return(
-            <div className='mind_carousel_container max-w-[1350px] m-auto'>
+            <div className='mind_carousel_container max-w-[1000px] m-auto'>
                 <div className='mind_carousel_container'>
                     <MindCarousel data={appData[0]?.card?.card} />
                 </div>

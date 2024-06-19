@@ -4,6 +4,7 @@ import { getAPIUrl, getCarouselAPIUrl, getIconUrl, getLogoUrl, getRestaurantMenu
 import { hideInMobileView, navItemCSS } from "./header";
 import useFetchCarouselResList from "./hooks/useFetchCarouselResList";
 import useFetchRestaurantMenu from "./hooks/useFetchRestaurantMenu";
+import { responsiveGrid } from "./constants/tailwindCss";
 
 export {
   useGetIdAndTags,
@@ -20,4 +21,5 @@ export {
   useFetchRestaurantMenu,
   getIconUrl,
   getLogoUrl,
+  responsiveGrid,
 };

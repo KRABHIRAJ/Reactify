@@ -18,7 +18,7 @@ const RestaurantMenu = () => {
   );
   if (!title && !resDetails && !resOfferDetails && !menuList) return;
   return (
-    <div className="max-w-[900px] m-auto pt-10">
+    <div className="max-w-[1000px] m-auto pt-10">
       <SWHeader title={title} />
       <RestaurantDetail resDetails={resDetails} />
       {resOfferDetails.length > 0 && (
