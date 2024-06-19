@@ -18,7 +18,7 @@ const RestaurantCard = ({ restaurant }) => {
   const subHeader = aggregatedDiscountInfoV3?.subHeader || '';
   const naviagate = useNavigate();
   const navigateToResMenu = () => {
-        naviagate(`restaurants/${id}`)
+        naviagate(`/restaurants/${id}`)
   }
   
   return <div onClick={navigateToResMenu} className="restaurant_card cursor-pointer w-[180px] sm:w-[200px] lg:w-[200px] xl:w-[300px]">

@@ -15,7 +15,7 @@ const MenuLists = ({ menuList }) => {
                   <p className="font-[700] text-[18px]">
                     {title} ({itemCards?.length})
                   </p>
-                  <i className="fa-solid fa-chevron-down"></i>
+                  <i className={`fa-solid ${isShowAccordion ? 'fa-chevron-up':'fa-chevron-down'}`}></i>
                 </div>
                 {
                     isShowAccordion && (
