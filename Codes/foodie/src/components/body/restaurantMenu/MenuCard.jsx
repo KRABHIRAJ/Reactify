@@ -21,7 +21,6 @@ const MenuCard = ({ cardInfo }) => {
     }else if(type === 'increment'){
       dispatch(addItemToCart(cardInfo));
     }else if(type === 'decrement'){
-      console.log('In decre');
       if(currentItemInCart.length === 1){
         setIsAddBtnClicked(false);
       }

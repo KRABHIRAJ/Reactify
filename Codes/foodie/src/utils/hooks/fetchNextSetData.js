@@ -20,7 +20,6 @@ const fetchNextSetData = async (rawData, csrfToken) => {
                 _csrf:csrfToken  
             }
           });
-        console.log(response)
     }catch(err){
         console.log('err >>', err)
     }

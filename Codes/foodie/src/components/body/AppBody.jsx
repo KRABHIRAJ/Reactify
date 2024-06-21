@@ -8,7 +8,6 @@ const AppBody = () => {
     const rawData = response?.data;
     const appData = rawData?.cards;
     const csrfToken = response?.csrfToken;
-    console.log('appData >>', appData);
 
     if(rawData?.length <= 0 || rawData === undefined){
         return (
