@@ -8,11 +8,12 @@ const initialState = {
     cartItem: []
 }
 
-export const calculateCartAmount = () => {
-    return initialState.cartItem.reduce((acc, item) => {
+export const calculateCartAmount = (cartItem) => {
+    const cal =  cartItem.reduce((acc, item) => {
         const price = item?.price / 100 || item?.defaultPrice / 100;
-        acc += price;
+        return acc += price;
     }, 0)
+    return cal;
 }
 export const swiggySlice = createSlice({
     name:'swiggyApp',
