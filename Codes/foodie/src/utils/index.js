@@ -1,10 +1,11 @@
 import useGetIdAndTags from "./hooks/useGetIdAndTags";
 import useFetchRestaurantData from "./hooks/useFetchRestaurantData";
-import { getAPIUrl, getCarouselAPIUrl, getIconUrl, getLogoUrl, getRestaurantMenuUrl, logo_url, mind_carousel_base_url, res_card_base_url } from "./constants/api";
+import { baseUrl, getAPIUrl, getCarouselAPIUrl, getIconUrl, getLogoUrl, getRestaurantMenuUrl, logo_url, mind_carousel_base_url, res_card_base_url } from "./constants/api";
 import { hideInMobileView, navItemCSS } from "./header";
 import useFetchCarouselResList from "./hooks/useFetchCarouselResList";
 import useFetchRestaurantMenu from "./hooks/useFetchRestaurantMenu";
-import { responsiveGrid } from "./constants/tailwindCss";
+import { addToCartBtnCSS, responsiveGrid } from "./constants/tailwindCss";
+import fetchNextSetData from "./hooks/fetchNextSetData";
 
 export {
   useGetIdAndTags,
@@ -22,4 +23,7 @@ export {
   getIconUrl,
   getLogoUrl,
   responsiveGrid,
+  baseUrl,
+  fetchNextSetData,
+  addToCartBtnCSS,
 };

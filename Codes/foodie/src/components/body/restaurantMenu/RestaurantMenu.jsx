@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useFetchRestaurantMenu } from "../../../utils";
-import { MenuLists, RestaurantDetail, RestaurantOffer, SWHeader } from "../../index";
+import { MenuLists, RestaurantDetail, RestaurantOffer, SWHeader, SkeletonCard } from "../../index";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrResId } from "../../../store/slices/swiggySlice";
 
 const RestaurantMenu = () => {
   const params = useParams();
@@ -16,7 +19,18 @@ const RestaurantMenu = () => {
   const menuList = allMenuItems?.filter((item) =>
     item?.card?.card["@type"]?.includes("ItemCategory")
   );
-  if (!title && !resDetails && !resOfferDetails && !menuList) return;
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(setCurrResId(resId));
+  }, []);
+
+
+  if (!title && !resDetails && !resOfferDetails && !menuList){
+    return (
+      <SkeletonCard count={32} />
+    )
+  }
   return (
     <div className="max-w-[1000px] m-auto pt-10">
       <SWHeader title={title} />

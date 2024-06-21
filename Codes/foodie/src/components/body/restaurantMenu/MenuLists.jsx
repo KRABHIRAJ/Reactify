@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import SWAccordion from "../common/accordion/SWAccordion";
 
 const MenuLists = ({ menuList }) => {
+  const [isShowAccordion, setisShowAccordion] = useState(true);
+
   return (
     <div className="p-4">
       {menuList?.map((menuItem) => {
-        const [isShowAccordion, setisShowAccordion] = useState(false);
-        const { title, itemCards, categories } = menuItem?.card?.card;
+        const { title, itemCards} = menuItem?.card?.card;
         return (
           <div key={title}>
             {(itemCards?.length > 0 && itemCards)? (

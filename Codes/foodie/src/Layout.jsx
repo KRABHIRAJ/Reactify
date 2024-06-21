@@ -1,6 +1,6 @@
 
 import './App.css'
-import { Footer, Header } from './components'
+import { Header } from './components'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
@@ -8,7 +8,6 @@ const Layout = () => {
     <div>
       <Header />
       <Outlet />
-      <Footer />
     </div>
   )
 }

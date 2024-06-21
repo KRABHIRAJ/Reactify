@@ -1,4 +1,5 @@
 import AppBody from "./body/AppBody";
+import Cart from "./body/cart/Cart";
 import SWHeader from "./body/common/SWHeader";
 import RestaurantCard from "./body/common/restaurantCard/RestaurantCard";
 import SkeletonCard from "./body/common/skeletonCard/SkeletonCard";
@@ -12,12 +13,10 @@ import MenuLists from "./body/restaurantMenu/MenuLists";
 import RestaurantDetail from "./body/restaurantMenu/RestaurantDetail";
 import RestaurantMenu from "./body/restaurantMenu/RestaurantMenu";
 import RestaurantOffer from "./body/restaurantMenu/RestaurantOffer";
-import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
 export {
   Header,
-  Footer,
   AppBody,
   RestaurantCard,
   SWHeader,
@@ -32,4 +31,5 @@ export {
   RestaurantOffer,
   MenuLists,
   MenuCard,
+  Cart,
 };

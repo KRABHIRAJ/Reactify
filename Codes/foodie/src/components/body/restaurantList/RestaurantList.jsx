@@ -1,50 +1,19 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
 import {RestaurantCard, SWHeader} from "../../index";
-import axios from 'axios';
-import { responsiveGrid } from "../../../utils";
+import { responsiveGrid, fetchNextSetData } from "../../../utils";
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
 const RestaurantList = ({title, data, rawData, csrfToken}) => {
-    const restaurants = data?.gridElements?.infoWithStyle?.restaurants;
+    let restaurants = data?.gridElements?.infoWithStyle?.restaurants;
+    
+    useBottomScrollListener(() => {
+        const nextSetRestaurantData = fetchNextSetData(rawData, csrfToken);
+    });
 
-  useEffect(() => {
-    // Add the scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener on component unmount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight - 1
-    ) return;
-
-    axios({
-        method: 'post',
-        url: 'https://www.swiggy.com/dapi/restaurants/list/update',
-        headers: {
-            "Access-Control-Allow-Headers": "*", // this will allow all CORS requests
-            "Access-Control-Allow-Methods": 'OPTIONS,POST,GET', // this states the allowed methods
-            "Content-Type": "application/json" // this shows the expected content type
-        },
-        data: {
-            filters: {},
-            lat: rawData?.cards[11]?.card?.card?.lat,
-            lng: rawData?.cards[11]?.card?.card?.lng,
-            nextOffset: rawData?.pageOffset?.nextOffset,
-            page_type: "DESKTOP_WEB_LISTING",
-            seoParams: rawData?.cards[11]?.card?.card?.seoParams,
-            widgetOffset: rawData?.pageOffset?.widgetOffset,
-            _csrf:csrfToken        
-        }
-      });
-  };
 
 
     return(
-        <div className="py-8 border-b border-[#F0F0F5]">
+        <div  className="py-8 border-b border-[#F0F0F5]">
             <SWHeader title={title}/>
             <div className={`restaurant_list ${responsiveGrid}`}>
                 {

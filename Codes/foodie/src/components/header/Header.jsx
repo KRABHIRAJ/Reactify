@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { hideInMobileView, logo_url, navItemCSS } from "../../utils/header";
 import "./header.css"
+import { useSelector } from "react-redux";
 
 const Header = () => {
+    const cartItems = useSelector((state) => state.cartItem);
     return(
         <div className="header flex items-center justify-between px-8 py-3 sticky top-0 z-20 bg-white">
             <NavLink to="/">
@@ -23,10 +25,15 @@ const Header = () => {
                     <i className="fa-solid fa-user"></i>
                     <span>Sign In</span>
                 </div>
-                <div className={navItemCSS}>
+                <NavLink to="/cart">
+                <div className={`${navItemCSS} relative`}>
                     <i className="fa-solid fa-cart-shopping"></i>
                     <span>Cart</span>
+                    <div className="rounded-full w-[30px] h-[30px]  bg-[#60B246] flex items-center justify-center">
+                        <span className=" text-[#ffffff] font-[600]">{cartItems?.length || 0}</span>
+                    </div>
                 </div>
+                </NavLink>
             </div>
         </div>
     )

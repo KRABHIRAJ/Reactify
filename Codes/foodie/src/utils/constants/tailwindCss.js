@@ -1,1 +1,2 @@
 export const responsiveGrid = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4 md:gap-8  justify-between'
+export const addToCartBtnCSS = 'text-[#1BA672] bg-[#FFFFFF] w-[100px] py-1 rounded-lg font-[700] px-3';
