@@ -3,17 +3,19 @@ import { addToCartBtnCSS, getLogoUrl } from "../../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../../../store/slices/swiggySlice";
 
-const MenuCard = ({ cardInfo }) => {
+const MenuCard = ({ cardInfo, cardType="InMenu" }) => {
   const [lineClamp, setLineClamp] = useState("line-clamp-2");
-  const [isAddBtnClicked, setIsAddBtnClicked] = useState(false);
   const { id, description, imageId, name, price, defaultPrice, ratings } =
     cardInfo;
   const { rating, ratingCountV2 } = ratings?.aggregatedRating;
   const logo_url = getLogoUrl("w_300", "h_300", imageId);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItem);
-  const currentItemInCart = cartItems?.filter((item) => item.id === id)
-  // const selectedRestaurant = useSelector((state) => state.resId);
+  const currentItemInCart = (cartItems?.filter((item) => item.id === id));
+  const [isAddBtnClicked, setIsAddBtnClicked] = useState(currentItemInCart?.length > 0);
+
+
+
   const addToCart = (type) => {
     if (type === "addBtn") {
       setIsAddBtnClicked(true);
@@ -21,7 +23,7 @@ const MenuCard = ({ cardInfo }) => {
     }else if(type === 'increment'){
       dispatch(addItemToCart(cardInfo));
     }else if(type === 'decrement'){
-      if(currentItemInCart.length === 1){
+      if(currentItemInCart?.[0].count === 1){
         setIsAddBtnClicked(false);
       }
       dispatch(removeItemFromCart(id))
@@ -50,7 +52,7 @@ const MenuCard = ({ cardInfo }) => {
               onClick={() => setLineClamp("line-clamp-none")}
               className="font-[600] cursor-pointer self-end"
             >
-              more
+              {cardType==='InMenu' && 'more'}
             </span>
           )}
         </div>
@@ -68,7 +70,7 @@ const MenuCard = ({ cardInfo }) => {
               >
                 -
               </button>
-              {currentItemInCart?.length ?? 0}
+              {currentItemInCart?.[0]?.count ?? 0}
               <button
                 className="text-[20px]"
                 onClick={() => addToCart("increment")}

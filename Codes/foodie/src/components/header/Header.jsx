@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
     const cartItems = useSelector((state) => state.cartItem);
+    const totalCount = cartItems?.reduce((acc, item) => {
+        return acc + item?.count;
+    },0)
     return(
         <div className="header flex items-center justify-between px-8 py-3 sticky top-0 z-20 bg-white">
             <NavLink to="/">
@@ -30,7 +33,7 @@ const Header = () => {
                     <i className="fa-solid fa-cart-shopping"></i>
                     <span>Cart</span>
                     <div className="rounded-full w-[30px] h-[30px]  bg-[#60B246] flex items-center justify-center">
-                        <span className=" text-[#ffffff] font-[600]">{cartItems?.length || 0}</span>
+                        <span className=" text-[#ffffff] font-[600]">{totalCount || 0}</span>
                     </div>
                 </div>
                 </NavLink>

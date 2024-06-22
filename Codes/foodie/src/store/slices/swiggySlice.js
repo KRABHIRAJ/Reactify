@@ -26,14 +26,19 @@ export const swiggySlice = createSlice({
         addItemToCart: (state, action) => {
             const item = action.payload;
             if(state.cartItem.length === 0){
-                state.cartItem.push(item);
+                state.cartItem.push({...item, count:1});
                 state.cartItemResId = state.currentResId;
             }else{
                 if(state.cartItemResId === state.currentResId){
-                    state.cartItem = [{...item}, ...state.cartItem];
+                    const index = state.cartItem.findIndex((currItem) => currItem.id === item.id);
+                    if(index >= 0){
+                        state.cartItem[index].count += 1;
+                    }else{
+                        state.cartItem.push({...item, count:1});
+                    }
                 }else{
                     state.cartItem.length = 0;
-                    state.cartItem.push(item);
+                    state.cartItem.push({...item, count:1});
                     state.cartItemResId = state.currentResId;
                 }
             }
@@ -42,7 +47,11 @@ export const swiggySlice = createSlice({
             const id = action.payload;
             const index = state.cartItem.findIndex((item) => item.id === id);
             if(index >= 0){
-                state.cartItem.splice(index,1);
+                if(state.cartItem[index].count === 1){
+                    state.cartItem.splice(index,1);
+                }else{
+                    state.cartItem[index].count -= 1;
+                }
             }
         },
         setCurrResId(state, action){
@@ -51,5 +60,5 @@ export const swiggySlice = createSlice({
     }
 })
 
-export const { setLocation, addItemToCart, setCurrResId, removeItemFromCart} = swiggySlice.actions;
+export const { setLocation, addItemToCart, setCurrResId, removeItemFromCart } = swiggySlice.actions;
 export default swiggySlice.reducer;
