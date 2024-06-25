@@ -1,8 +1,11 @@
-# React + Vite
+# [Foodies: A swiggy clone](https://suiggy.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's a food ordering web app which comprises of home page where list of all restaurants has been shown. We can look into the restaurant's menu & add to cart functionality is also there. cart page comprises all the items which we have added to cart.
 
-Currently, two official plugins are available:
+ => Used swiggy's live api to get the data.   
+ => Used Redux to enable add to cart functionality.  
+ => Used routing to switch between pages seamlessly.  
+ => Used lazy loading to split the chunks and load whenever required.  
+ => Used [React loading skeleton](https://www.npmjs.com/package/react-loading-skeleton) to show shimmer UI while getting the data from API for better UX.  
+ => Created multiple custom hooks to handle api calls.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
