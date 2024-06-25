@@ -11,7 +11,7 @@ const initialState = {
 export const calculateCartAmount = (cartItem) => {
     const cal =  cartItem.reduce((acc, item) => {
         const price = item?.price / 100 || item?.defaultPrice / 100;
-        return acc += price;
+        return acc += (price * item?.count) ;
     }, 0)
     return cal;
 }
